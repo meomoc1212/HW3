@@ -1,0 +1,144 @@
+/* Basic reset & box-sizing */
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.45;
+  margin: 0;
+  color: #222;
+  background: #f8f9fb;
+}
+
+/* SKIP LINK: off-screen by default, visible when focused (position + :focus) */
+.skip-link {
+  position: absolute;
+  left: -9999px;    /* hide off-screen */
+  top: auto;
+  background: #fff;
+  color: #111;
+  padding: 0.45rem 0.65rem;
+  border: 2px solid #0077cc;
+  border-radius: 6px;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 1rem;       /* move on-screen when focused */
+  top: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  outline: 3px solid rgba(0,119,204,0.15);
+}
+
+/* HEADER: brand + NAV */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(90deg,#e9f2ff,#f3f8ff);
+  border-bottom: 2px solid #dfeaf7;
+}
+
+/* brand */
+.brand {
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.logo { width:52px; height:52px; border-radius:8px; object-fit:cover; }
+
+/* Navigation (use FLEX here; at least 3 CSS properties used) */
+.topnav {
+  display:flex;            /* flex property applied */
+  gap: 0.9rem;             /* space between links */
+  align-items:center;
+  padding: 0.35rem;
+  background: rgba(0,0,0,0.02);
+  border-radius: 8px;
+}
+.topnav a {
+  text-decoration:none;
+  padding: 0.55rem 0.8rem;
+  color: #0b3b66;
+  border-radius: 6px;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease; /* transition for hover */
+  font-weight:600;
+}
+/* hover effect with transform and background change */
+.topnav a:hover {
+  transform: translateY(-3px) scale(1.02);
+  background-color:#e0f0ff;
+  box-shadow: 0 6px 14px rgba(2,20,44,0.06);
+}
+/* active link */
+.topnav a.active {
+  background: #0077cc;
+  color: white;
+}
+
+/* MAIN content */
+main { padding: 1.25rem; max-width:1100px; margin: 0 auto; }
+
+/* Featured grid (two columns) - uses CSS grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items:start;
+  margin-top: 1rem;
+}
+
+/* HERO */
+.hero { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,0.03); }
+
+/* GALLERY grid requirement: grid with at least 2 columns */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two columns */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Each photo wrapped in figure.photo */
+.photo { background: white; padding: 0.6rem; border-radius: 12px; box-shadow: 0 6px 12px rgba(3,20,40,0.03); text-align:center; }
+
+/* Image box model styling (border, padding, border-radius) - applied to all gallery and card images */
+.photo img, .card-img, .logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 6px solid #e6eef9;      /* border */
+  padding: 6px;                   /* padding */
+  border-radius: 14px;            /* border-radius */
+  background: white;
+  box-shadow: 0 8px 18px rgba(2,20,44,0.06);
+}
+
+/* Use :nth-child selector — make every other .photo have a different border radius and accent */
+.gallery .photo:nth-child(odd) img {
+  border-radius: 28px;
+}
+.gallery .photo:nth-child(even) img {
+  border-radius: 6px;
+}
+
+/* Hover on image figure: subtle grow + shadow */
+.photo:hover {
+  transform: translateY(-6px);
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 12px 28px rgba(2,20,44,0.12);
+}
+
+/* Two-column helper for about page */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top:1rem; }
+
+/* caption list and footer */
+.caption-list, .site-footer { margin-top: 1rem; }
+.site-footer { padding: 1rem; color: #475b73; font-size:0.95rem; text-align:center; }
+
+/* responsive adjustments */
+@media (max-width: 800px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .gallery { grid-template-columns: 1fr; }
+  .topnav { flex-wrap: wrap; gap: 0.45rem; }
+  .two-col { grid-template-columns: 1fr; }
+}

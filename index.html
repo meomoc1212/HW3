@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Site — Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Skip link (only visible when focused) -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/avatar.jpg" alt="Site logo / avatar" class="logo">
+      <h1>My Mini Site</h1>
+    </div>
+
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero">
+      <h2>Welcome</h2>
+      <p>This small site demonstrates semantic HTML and modern CSS features: flex, grid, nth-child, hover transitions, skip link focus, and image styling via the box model.</p>
+      <ul>
+        <li>Accessible skip link</li>
+        <li>Navigation styled with flexbox</li>
+        <li>Gallery grid (two columns)</li>
+      </ul>
+    </section>
+
+    <section class="featured-grid">
+      <article>
+        <h3>Featured Item</h3>
+        <img src="images/photo1.jpg" alt="Featured photo 1" class="card-img">
+      </article>
+
+      <aside>
+        <h3>Quick Links</h3>
+        <ol>
+          <li><a href="gallery.html">View gallery (5+ images)</a></li>
+          <li><a href="about.html">Read about this demo</a></li>
+          <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN Web Docs</a></li>
+        </ol>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Created for learning.</p>
+  </footer>
+</body>
+</html>
